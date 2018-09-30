@@ -1,49 +1,62 @@
-[{"name" : "Id Number",
-		"defaultDataType" : "Integer",
-		"icon" : "fa-id-card"
-	}, {
-		"name" : "Id Text",
-		"defaultDataType" : "String",
-		"icon" : "fa-id-badge"
-	}, {
-		"name" : "Phone#",
-		"defaultDataType" : "Integer",
-		"icon" : "fa-phone"
-	}, {
-		"name" : "Email",
-		"defaultDataType" : "String",
-		"icon" : "fa-calendar"
-	}, {
-		"name" : "Date",
-		"defaultDataType" : "Date",
-		"icon" : "fa-calendar"
-	}, {
-		"name" : "Address",
-		"defaultDataType" : "String",
-		"icon" : "fa-home"
-	}, {
-		"name" : "Name",
-		"defaultDataType" : "String",
-		"icon" : "fa-user"
-	}, {
-		"name" : "Amount",
-		"defaultDataType" : "Decimal",
-		"icon" : "fa-money"
-	}, {
-		"name" : "Duration",
-		"defaultDataType" : "Integer",
-		"icon" : "fa-arrows-h"
-	}, {
-		"name" : "Gender",
-		"defaultDataType" : "Integer",
-		"icon" : "fa-venus-mars"
-	}, {
-		"name" : "Text",
-		"defaultDataType" : "String",
-		"icon" : "fa-text-width"
-	}, {
-		"name" : "Attachment",
-		"defaultDataType" : "Blob",
-		"icon" : "fa-paperclip"
-	}
+[
+  {
+    "name": "Id Number",
+    "defaultDataType": "Integer",
+    "icon": "fa-id-card"
+  },
+  {
+    "name": "Id Text",
+    "defaultDataType": "String",
+    "icon": "fa-id-badge"
+  },
+  {
+    "name": "Phone#",
+    "defaultDataType": "Integer",
+    "icon": "fa-phone"
+  },
+  {
+    "name": "Email",
+    "defaultDataType": "String",
+    "icon": "fa-calendar"
+  },
+  {
+    "name": "Date",
+    "defaultDataType": "Date",
+    "icon": "fa-calendar"
+  },
+  {
+    "name": "Address",
+    "defaultDataType": "String",
+    "icon": "fa-home"
+  },
+  {
+    "name": "Name",
+    "defaultDataType": "String",
+    "icon": "fa-user"
+  },
+  {
+    "name": "Amount",
+    "defaultDataType": "Decimal",
+    "icon": "fa-money"
+  },
+  {
+    "name": "Duration",
+    "defaultDataType": "Integer",
+    "icon": "fa-arrows-h"
+  },
+  {
+    "name": "Gender",
+    "defaultDataType": "Integer",
+    "icon": "fa-venus-mars"
+  },
+  {
+    "name": "Text",
+    "defaultDataType": "String",
+    "icon": "fa-text-width"
+  },
+  {
+    "name": "Attachment",
+    "defaultDataType": "Blob",
+    "icon": "fa-paperclip"
+  }
 ]
