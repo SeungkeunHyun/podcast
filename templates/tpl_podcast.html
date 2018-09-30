@@ -1,0 +1,65 @@
+<style>
+    .container {
+        padding-top: 10px;
+        padding-bottom: 100px;
+    }
+
+    a[role=option] {
+        color: #000!important;
+    }
+	
+	table.dataTable {
+		border-collapse:collapse;
+		width=100%
+	}
+
+</style>
+<!--//
+    .content {
+        min-height: calc(100vh - 70px);
+    }
+
+    .footer {
+        height: 50px;
+        width: 100%;
+        bottom: 0;
+        position: fixed;
+
+        text-align: center;
+    }
+//-->
+<nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">닭쳐 v5</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarBookmark" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-bookmark"></i><span class="sr-only">(current)</span></a>
+                <div class="dropdown-menu" id='listBookmarks' aria-labelledby="navbarBookmark">
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class='nav-link dropdown-toggle' href='#' id='navbarFonts' role='button' data-toggle='dropdown' aria-haspopup="true" aria-expanded='false'><i class="fa fa-font"></i></a>
+                <div class="dropdown-menu" id='listFonts' aria-labelledby="navbarFonts">
+                </div>
+            </li>
+            <!--//
+            <li class="nav-item">
+                <a class="nav-link" href="#"><i class="fas fa-search"></i></a>
+            </li>
+            //-->
+        </ul>
+        <form class="form-inline my-2 my-lg-0" onSubmit="return false;">
+            <input id='iptSearch' class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button id='btnSearch' class="btn disabled btn-outline-success my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+</nav>
+<div class='container-fluid content'>
+    <div id='divPodcasts'>
+        <table id="tabPodcasts" class='table table-striped compact table-sm'></table>
+    </div>
+</div>
+<iframe id="dlFrame" name="dlFrame" style="display:none;width:0px; height:0px; border: 0px"></iframe>
