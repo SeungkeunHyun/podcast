@@ -72,14 +72,6 @@
 	"url": "http://pod.ssenhosting.com/ch/6199",
 	"image": "http://img.podbbang.com/img/pb_m/thumb/x150/6199.png"
 }, {
-	"provider": "podbbang",
-	"podcastID": 1247873054,
-	"name": "페미니즘, 공부하는 중입니다",
-	"category": "교육",
-	"cast_episode": "cast",
-	"url": "http://pod.ssenhosting.com/ch/1247873054",
-	"image": "https://is4-ssl.mzstatic.com/image/thumb/Music117/v4/4d/d9/6b/4dd96b64-228a-1796-91ef-cb2d5846441f/source/60x60bb.jpg"
-}, {
 	"provider": "podty",
 	"name": "여행 스페인어 무작정 따라하기",
 	"podcastID": "177400",
