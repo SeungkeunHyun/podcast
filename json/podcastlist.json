@@ -871,4 +871,13 @@
 	"author": "TED",
 	"url": "http://feeds.feedburner.com/KoreanPodcastSocietyAndCulture",
 	"image": "http://images.ted.com/images/ted/podcast/ko/society-culture_ko.png"
+}, {
+	"name": "이용의 필스교양",
+	"category": "교육",
+	"podcastID": "12227",
+	"provider": "podbbang",
+	"cast_episode": "cast",
+	"author": "이용",
+	"url": "http://pod.ssenhosting.com/ch/12227",
+	"image": "http://img.podbbang.com/img/pb_m/thumb/x150/12227.png"
 }]
