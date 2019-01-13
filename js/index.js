@@ -26,7 +26,7 @@ class PageIndex {
       "http://www.podbbang.com/category/lists",
       "https://www.podty.me/search/total"
     ];
-    $ipt.on("keydown", function(e) {
+    $ipt.on("keydown", function (e) {
       if ($ipt.val().length > 0) {
         $btn.removeClass("disabled");
       } else {
@@ -36,14 +36,14 @@ class PageIndex {
         $btn.trigger("click");
       }
     });
-    $ipt.on("change", function(e) {
+    $ipt.on("change", function (e) {
       if ($ipt.val().length > 0) {
         $btn.removeClass("disabled");
       } else {
         $btn.addClass("disabled");
       }
     });
-    $btn.on("click", async function(e) {
+    $btn.on("click", async function (e) {
       var srchWord = $ipt.val();
       var results = [];
       for (var url of searchTargets) {
@@ -77,15 +77,14 @@ class PageIndex {
         data: results,
         responsive: true,
         paging: false,
-        columns: [
-          {
+        columns: [{
             data: "site",
             title: "Site"
           },
           {
             data: "name",
             title: "Title",
-            render: function(val, typ, row, meta) {
+            render: function (val, typ, row, meta) {
               return `<div class='media'>
                             <div class='media-left'><img src='${
                               row.image
@@ -100,7 +99,7 @@ class PageIndex {
           }
         ]
       });
-      $("button.fa-plus-square").on("click", async function(e) {
+      $("button.fa-plus-square").on("click", async function (e) {
         var rowToAdd = $mdt.row($(this).closest("tr")).data();
         LocalStorageUtil.registerLocalStorage("myCasts", "url", rowToAdd);
         await self.loadRSS(rowToAdd, self);
@@ -124,7 +123,7 @@ class PageIndex {
       });
       var resp = JSON.parse(resp);
       if (resp.resultCount > 0) {
-        resp.results.forEach(function(itm) {
+        resp.results.forEach(function (itm) {
           var item = {};
           item.podcastID = itm.collectionId;
           item.name = itm.trackName;
@@ -143,7 +142,7 @@ class PageIndex {
         }
       });
       var $items = $(resp).find("#podcast_list ul.clearfix");
-      $.each($items, function(i, o) {
+      $.each($items, function (i, o) {
         var item = {};
         var pid = o
           .querySelector("a")
@@ -165,7 +164,7 @@ class PageIndex {
         url: "https://cors.io?" + url + "?keyword=" + encodeURI(srchWord)
       });
       var $items = $(resp).find("#castResults li");
-      $.each($items, function(i, o) {
+      $.each($items, function (i, o) {
         var item = {};
         item.name = o.querySelector("a.name").textContent;
         item.url =
@@ -186,7 +185,7 @@ class PageIndex {
   getTitle(val, row) {
     var itemCount = val;
     if (row.xdoc) {
-      itemCount = `${val} <span class='pull-right badge badge-pill badge-dark'>${
+      itemCount = `${val} <span class='badge badge-pill badge-dark'>${
         row.xdoc.querySelectorAll("item").length
       }</span>`;
     }
@@ -215,7 +214,7 @@ class PageIndex {
       switch (k) {
         case "category":
           col.title = "Category";
-          col.render = function(val, typ, row, meta) {
+          col.render = function (val, typ, row, meta) {
             return `<kbd style=\"font-family: '${PageIndex.defaultFont()}', cursive;\">${self.getCategory(
               val,
               row
@@ -223,7 +222,7 @@ class PageIndex {
           };
           break;
         case "name":
-          col.render = function(val, typ, row, meta) {
+          col.render = function (val, typ, row, meta) {
             return `<div class='media'>
                             <div class='media-left'><img src='${
                               row.image
@@ -237,7 +236,7 @@ class PageIndex {
           col.title = "Podcast";
           break;
         case "lastPub":
-          col.render = function(val, typ, row, meta) {
+          col.render = function (val, typ, row, meta) {
             if (row.lastPub)
               return `<small class='lastPostedAt' style=\"font-family: 'Passion One', cursive;\">${row.lastPub
                 .substring(2, 16)
@@ -245,7 +244,8 @@ class PageIndex {
                   "T",
                   " "
                 )}</small><br><i class='fa fa-refresh' aria-hidden='true'></i>`;
-            else return null;
+            else 
+				return `<i class='fa fa-refresh' aria-hidden='true'></i>`;
           };
           col.title = "Posted at";
           break;
@@ -269,7 +269,7 @@ class PageIndex {
         LocalStorageUtil.getItemArrayFromLocalStorage("myCasts")
       );
     }
-    jsonPC.forEach(function(itm) {
+    jsonPC.forEach(function (itm) {
       itm["lastPub"] = null;
       itm["xdoc"] = null;
     });
@@ -296,14 +296,14 @@ class PageIndex {
       width: "100%"
     };
     $dt.colReorder.move(1, 0);
-    $("#navbarBookmark").on("click", function(e) {
+    $("#navbarBookmark").on("click", function (e) {
       var bookmarks = LocalStorageUtil.getItemArrayFromLocalStorage(
         "bookmarks"
       );
       if (!bookmarks) {
         return;
       }
-      bookmarks.sort(function(a, b) {
+      bookmarks.sort(function (a, b) {
         return b.recordedAt - a.recordedAt;
       });
       var $lstBM = $("#listBookmarks");
@@ -311,18 +311,18 @@ class PageIndex {
       if (!bookmarks) {
         return;
       }
-      bookmarks.forEach(function(itm) {
+      bookmarks.forEach(function (itm) {
         var $item = $(
           '<a class="dropdown-item" href="#">[' +
-            itm.title +
-            "] " +
-            itm.episode +
-            "</a>"
+          itm.title +
+          "] " +
+          itm.episode +
+          "</a>"
         );
         $item.data(itm);
         $lstBM.append($item);
       });
-      $lstBM.find("a").on("click", function() {
+      $lstBM.find("a").on("click", function () {
         var rec = $(this).data();
         self.playCast(rec, self, bookmarks);
         $("button.navbar-toggler").trigger("click");
@@ -334,8 +334,18 @@ class PageIndex {
     $("footer").remove();
     $("body").append(
       '<footer class="container-fluid page-footer font-small stylish-color-dark pt-4 mt-4" style="width:100%;position:fixed;bottom:0"><div class="progress">' +
-        '<div style="height:60px;vertical-align:middle" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>' +
-        "</div></footer>"
+      '<div style="height:60px;vertical-align:middle" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>' +
+      "</div></footer>"
+    );
+	var $dt = $tab.DataTable();
+	$tab.on(
+      "click",
+      "i.fa-refresh", {
+        self: self,
+        dt: $dt,
+        $dt
+      },
+      self.refreshRecord
     );
     self.refreshPostData($dt, self);
     self.addDTEvents($tab, self);
@@ -351,18 +361,18 @@ class PageIndex {
     if (!fonts) {
       return;
     }
-    fonts.forEach(function(itm) {
+    fonts.forEach(function (itm) {
       itm = itm.replace(/[+]/g, " ");
       var $item = $(
         '<a class="dropdown-item" style="font-family: ' +
-          itm +
-          ', cursive;" href="#">' +
-          itm +
-          "</a>"
+        itm +
+        ', cursive;" href="#">' +
+        itm +
+        "</a>"
       );
       $item.data(itm);
       $lstFont.append($item);
-      $lstFont.find("a").on("click", function() {
+      $lstFont.find("a").on("click", function () {
         $("button.navbar-toggler").trigger("click");
         localStorage.setItem("defaultFont", this.textContent);
         $("h5[style^=font-family]").attr(
@@ -444,7 +454,7 @@ class PageIndex {
     var dic = {};
     var rowsToRefresh = $dt.data().count();
     var rcnt = $dt.rows().count();
-    $dt.rows().every(async function(rowIdx, tableLoop, rowLoop) {
+    $dt.rows().every(async function (rowIdx, tableLoop, rowLoop) {
       try {
         var $row = $dt.row(rowIdx);
         await self.loadRSS($row.data(), self);
@@ -510,24 +520,14 @@ class PageIndex {
   addDTEvents($tab, self) {
     var $dt = $tab.DataTable();
     var dat = $dt.row(this).data();
+	console.log(dat);
     $tab.on(
       "click",
-      "h5",
-      {
+      "h5", {
         self: self,
         dt: $dt
       },
       self.showList
-    );
-    $tab.on(
-      "click",
-      "i.fa-refresh",
-      {
-        self: self,
-        dt: $dt,
-        $dt
-      },
-      self.refreshRecord
     );
   }
 
@@ -544,12 +544,12 @@ class PageIndex {
 
   mapRSSItemsToJSON(items, self) {
     var jsonItems = [];
-    items.forEach(function(itm) {
+    items.forEach(function (itm) {
       var jsonItem = {};
       jsonItem.episode = itm.querySelector("title").textContent;
-      jsonItem.pubdate = itm.querySelector("pubdate")
-        ? itm.querySelector("pubdate").textContent
-        : itm.querySelector("pubDate").textContent;
+      jsonItem.pubdate = itm.querySelector("pubdate") ?
+        itm.querySelector("pubdate").textContent :
+        itm.querySelector("pubDate").textContent;
       jsonItem.source = itm.querySelector("enclosure").getAttribute("url");
       if (itm.querySelector("summary"))
         jsonItem.summary = itm.querySelector("summary").textContent;
@@ -595,7 +595,7 @@ class PageIndex {
     );
     var items = dat.xdoc.querySelectorAll("item");
     var jsonItems = self.mapRSSItemsToJSON(items, self);
-    jsonItems.sort(function(a, b) {
+    jsonItems.sort(function (a, b) {
       return new Date(b.pubdate) - new Date(a.pubdate);
     });
     var $modalTab = $("div.modal table#tabModalList");
@@ -608,10 +608,12 @@ class PageIndex {
       responsive: true,
       info: false,
       bInfo: false,
-      order: [[1, "desc"]]
+      order: [
+        [1, "desc"]
+      ]
     });
     self.setDataTableRenderOption(self);
-    $modalTab.on("click", "td", function(evt) {
+    $modalTab.on("click", "td", function (evt) {
       var toPlay = $(this).has("i.fa-play-circle").length;
       var dat = $mdt.row(this).data();
       var rec = {};
@@ -713,7 +715,7 @@ class PageIndex {
 
   setPlayList(plist, rec, self) {
     var $divPlist = $("#selPlist");
-    plist.forEach(function(itm) {
+    plist.forEach(function (itm) {
       var $item = $(
         `<option title='${itm.episode}'>${
           itm.episode.length > 20
@@ -727,10 +729,10 @@ class PageIndex {
       $item.data(itm);
       $divPlist.append($item);
     });
-    $divPlist.on("click", "option", function() {
+    $divPlist.on("click", "option", function () {
       self.playCast($(this).data(), self, plist);
     });
-    $divPlist.on("change", function(e) {
+    $divPlist.on("change", function (e) {
       var rec = $(this[this.selectedIndex]).data();
       self.playCast(rec, self, plist);
     });
@@ -743,7 +745,7 @@ class PageIndex {
   playCast(rec, self, plist, isDefault) {
     if (plist && plist.length > 0) {
       if (!plist[0].hasOwnProperty("image")) {
-        plist.forEach(function(itm) {
+        plist.forEach(function (itm) {
           itm.title = rec.title;
           itm.image = rec.image;
         });
@@ -751,8 +753,7 @@ class PageIndex {
     }
     self.setPlayerFooter(rec, isDefault, self);
     self.setPlayList(plist, rec, self);
-    if (
-      !rec.currentTime &&
+    if (!rec.currentTime &&
       LocalStorageUtil.getItemFromLocalStorage(
         "bookmarks",
         "source",
@@ -777,9 +778,9 @@ class PageIndex {
     switch (this.id) {
       case "btnPrev":
         sel.selectedIndex =
-          sel.selectedIndex < sel.options.length - 1
-            ? sel.selectedIndex + 1
-            : sel.selectedIndex;
+          sel.selectedIndex < sel.options.length - 1 ?
+          sel.selectedIndex + 1 :
+          sel.selectedIndex;
         $(sel).trigger("change");
         break;
       case "btn30b":
@@ -807,7 +808,7 @@ class PageIndex {
     player.addEventListener("abort", self.recordBookmark);
     player.addEventListener("error", self.recordBookmark);
     player.addEventListener("pause", self.recordBookmark);
-    player.addEventListener("play", function() {
+    player.addEventListener("play", function () {
       var icon = $("#btnPP i");
       if (icon.hasClass("fa-play")) {
         icon.removeClass("fa-play");
@@ -848,17 +849,18 @@ class PageIndex {
   }
 
   getPCListColDefs() {
-    return [
-      {
+    return [{
         data: "episode",
         title: "episode",
-        render: function(val, typ, row, meta) {
+        render: function (val, typ, row, meta) {
           return `<div class='media'>
                     <div class='media-body' style='width:250px;overflow-x:auto'>
                       <i class='fa fa-play-circle'></i>
                       <strong class='mt-0' style=\"font-family: '${PageIndex.defaultFont()}', cursive;\">${val}</strong>
                       <p>
-                      <small>${row.summary ? row.summary : ""}</small>
+                      <small>${
+                        row.summary ? row.summary : ""
+                      }</small>
                       </p>
                     </div>
                   </div>`;
@@ -867,7 +869,7 @@ class PageIndex {
       {
         data: "pubdate",
         title: "posted at",
-        render: function(val, typ, row, meta) {
+        render: function (val, typ, row, meta) {
           var dt = new Date(val);
           dt.setHours(dt.getHours() + 9);
           var strDT = dt.toISOString();
