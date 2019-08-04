@@ -331,6 +331,17 @@ class DakchoV4_Utils {
         });
     }
 
+    static loadHTML(uri) {
+        return $.ajax({
+            url: "/php/util/fetchURL.php",
+            method: "GET",
+            data: {
+                uri: uri,
+                dataType: "html"
+            }
+        });
+    }
+
     static parseQueryString() {
         var query = location.search.substr(1);
         var result = {};
