@@ -638,7 +638,7 @@ class PageIndex {
   }
 
   downloadFile(rec, self) {
-    JSAlert.alert(`${rec.title} to be downloaded soon. Wait a while to be processed`).dismissin(1000 * 2);
+    JSAlert.alert(`${rec.episode} to be downloaded soon. Wait a while to be processed`).dismissin(1000 * 2);
     var dat = {
       lnk: encodeURI(rec.source),
       img: encodeURI(rec.image),
