@@ -101,6 +101,9 @@ class PageIndex {
       });
       $("button.fa-plus-square").on("click", async function (e) {
         var rowToAdd = $mdt.row($(this).closest("tr")).data();
+		rowToAdd.cast_episode = 'cast';
+		rowToAdd.provider = rowToAdd.site.toLowerCase();
+		delete rowToAdd.site;
         LocalStorageUtil.registerLocalStorage("myCasts", "url", rowToAdd);
         await self.loadRSS(rowToAdd, self);
         $("#tabPodcasts")
@@ -161,7 +164,7 @@ class PageIndex {
       });
     } else {
       var resp = await $.ajax({
-        url: "https://cors.io?" + url + "?keyword=" + encodeURI(srchWord)
+        url: "/php/util/fetchURL.php?uri=" + url + "?keyword=" + encodeURI(srchWord)
       });
       var $items = $(resp).find("#castResults li");
       $.each($items, function (i, o) {
@@ -270,6 +273,7 @@ class PageIndex {
       );
     }
     jsonPC.forEach(function (itm) {
+	  itm["cast_episode"] = 'cast';
       itm["lastPub"] = null;
       itm["xdoc"] = null;
     });
@@ -422,7 +426,7 @@ class PageIndex {
       var xdoc = DakchoV4_Utils.convertPodBbangHTMLToRSS(dat);
     } else if (dat.url.indexOf("www.podty.me") > -1) {
       dat.site = "Podty";
-      var doc = await self.tie.loadFile("https://cors.io?" + dat.url);
+      var doc = await self.tie.loadFile("/php/util/fetchURL.php?uri=" + dat.url);
       var xdoc = DakchoV4_Utils.convertPodtyHTMLToRSS(doc.response);
     } else {
       dat.site = "iTunes";
@@ -636,6 +640,7 @@ class PageIndex {
   }
 
   downloadFile(rec, self) {
+    JSAlert.alert(`${rec.title} to be downloaded soon. Wait a while to be processed`);
     var dat = {
       lnk: encodeURI(rec.source),
       img: encodeURI(rec.image),

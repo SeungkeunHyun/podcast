@@ -4,14 +4,15 @@
     "description": "TIE prototype using podcast player",
     "main": "index.html",
     "dependencies": {
-        "bootstrap": "^4.1.1",
-        "bootstrap-select": "^1.13.1",
+        "bootstrap": "^4.3.1",
+        "bootstrap-select": "^1.13.12",
         "crypto-js": "^3.1.9-1",
         "font-awesome": "^4.7.0",
         "font-awesome5": "^1.0.5",
-        "jquery": "^3.3.1",
-        "mdbootstrap": "^4.5.11",
-        "popper.js": "^1.14.3"
+        "jquery": "^3.4.1",
+        "js-alert": "^1.0.4",
+        "mdbootstrap": "^4.8.11",
+        "popper.js": "^1.16.0"
     },
     "devDependencies": {},
     "scripts": {

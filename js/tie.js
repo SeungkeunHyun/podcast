@@ -66,7 +66,7 @@ class TIE {
         return new Promise(resolve => {
             var xobj = new XMLHttpRequest();
             //xobj.overrideMimeType("application/json");
-            xobj.open('GET', "/php/util/fetchXML.php?q=" + src, true);
+            xobj.open('GET', "/php/util/fetchURL.php?uri=" + src, true);
             xobj.onreadystatechange = function () {
                 if (xobj.readyState == 4 && xobj.status == "200") {
                     resolve(xobj);

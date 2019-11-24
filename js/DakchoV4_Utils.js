@@ -48,7 +48,7 @@ class DakchoV4_Utils {
         return new Promise(function (resolve, reject) {
             if (pcInfo.url.match(/www.podty/)) {
                 console.info("found podty original!");
-                $.get("https://cors.io/?" + pcInfo.url)
+                $.get("/php/util/fetchURL.php?uri=" + pcInfo.url)
                     .then(function (dat) {
                         var doc = DakchoV4_Utils.convertPodtyHTMLToRSS(dat);
                         resolve(doc);
@@ -59,7 +59,7 @@ class DakchoV4_Utils {
                     });
             } else if (pcInfo.url.match(/naver.com/)) {
                 console.info("found naver original!");
-                $.get("https://cors.io/?" + pcInfo.url)
+                $.get("/php/util/fetchURL.php?uri=" + pcInfo.url)
                     .then(function (dat) {
                         var doc = DakchoV4_Utils.convertNaverHTMLToRSS(dat);
                         resolve(doc);

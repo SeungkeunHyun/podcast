@@ -94,5 +94,10 @@
     "script": {
       "src": "js/LocalStorageUtil.js"
     }
+  },
+  {
+    "script": {
+      "src": "node_modules/js-alert/dist/jsalert.min.js"
+    }
   }
 ]
