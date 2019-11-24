@@ -163,9 +163,7 @@ class PageIndex {
         results.push(item);
       });
     } else {
-      var resp = await $.ajax({
-        url: "/php/util/fetchURL.php?uri=" + url + "?keyword=" + encodeURI(srchWord)
-      });
+      var resp = await DakchoV4_Utils.loadHTML(item.url);
       var $items = $(resp).find("#castResults li");
       $.each($items, function (i, o) {
         var item = {};
@@ -426,7 +424,7 @@ class PageIndex {
       var xdoc = DakchoV4_Utils.convertPodBbangHTMLToRSS(dat);
     } else if (dat.url.indexOf("www.podty.me") > -1) {
       dat.site = "Podty";
-      var doc = await self.tie.loadFile("/php/util/fetchURL.php?uri=" + dat.url);
+      var doc = await self.tie.loadFile(dat.url);
       var xdoc = DakchoV4_Utils.convertPodtyHTMLToRSS(doc.response);
     } else {
       dat.site = "iTunes";
