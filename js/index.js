@@ -424,7 +424,7 @@ class PageIndex {
       var xdoc = DakchoV4_Utils.convertPodBbangHTMLToRSS(dat);
     } else if (dat.url.indexOf("www.podty.me") > -1) {
       dat.site = "Podty";
-      var doc = await self.tie.loadFile(dat.url);
+      var doc = await self.tie.loadFile("/php/util/fetchURL.php?uri=" + dat.url);
       var xdoc = DakchoV4_Utils.convertPodtyHTMLToRSS(doc.response);
     } else {
       dat.site = "iTunes";
