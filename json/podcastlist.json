@@ -59,7 +59,7 @@
     }, {
         "name": "조숙경의 과학이야기",
         "category": "교육",
-        "podcastID": 13474,
+        "podcastID": "13474",
         "provider": "podbbang",
         "cast_episode": "cast",
         "url": "http://pod.ssenhosting.com/ch/13474",
@@ -110,7 +110,7 @@
         "image": "http://i1.sndcdn.com/avatars-000322953427-12fai6-original.jpg"
     }, {
         "name": "덕업상권 - 덕질 권장 프로젝트",
-        "podcastID": 1054849058,
+        "podcastID": "1054849058",
         "category": "기타",
         "provider": "itunes",
         "cast_episode": "cast",
@@ -192,7 +192,7 @@
     }, {
         "name": "이진우의 손에 잡히는 경제",
         "category": "경제",
-        "podcastID": 437788220,
+        "podcastID": "437788220",
         "provider": "itunes",
         "cast_episode": "cast",
         "author": "MBC",
@@ -225,7 +225,7 @@
     }, {
         "name": "홍기빈의 이야기로 풀어보는 거대한 전환",
         "category": "경제",
-        "podcastID": 11295,
+        "podcastID": "11295",
         "provider": "podbbang",
         "cast_episode": "cast",
         "url": "http://pod.ssenhosting.com/ch/11295",
@@ -233,7 +233,7 @@
     }, {
         "name": "[국민라디오] 이작가 문희정의 라이벌",
         "category": "역사",
-        "podcastID": 6650,
+        "podcastID": "6650",
         "provider": "podbbang",
         "cast_episode": "cast",
         "url": "http://pod.ssenhosting.com/ch/6650",
@@ -241,7 +241,7 @@
     }, {
         "name": "컬투! 심통사연",
         "category": "코미디",
-        "podcastID": 4887,
+        "podcastID": "4887",
         "provider": "podbbang",
         "cast_episode": "cast",
         "url": "http://pod.ssenhosting.com/ch/4887",
@@ -249,7 +249,7 @@
     }, {
         "name": "여행종편",
         "category": "기타",
-        "podcastID": 16368,
+        "podcastID": "16368",
         "provider": "podbbang",
         "cast_episode": "cast",
         "url": "http://pod.ssenhosting.com/ch/16368",
@@ -360,7 +360,7 @@
     }, {
         "name": "영어왕",
         "category": "어학",
-        "podcastID": 1000425088,
+        "podcastID": "1000425088",
         "provider": "itunes",
         "cast_episode": "cast",
         "author": "앤드류",
@@ -369,7 +369,7 @@
     }, {
         "name": "나는 의사다",
         "category": "기타",
-        "podcastID": 492503630,
+        "podcastID": "492503630",
         "provider": "itunes",
         "cast_episode": "cast",
         "author": "청년의사",
@@ -515,7 +515,7 @@
     }, {
         "name": "SBS 정치쇼",
         "category": "뉴스",
-        "podcastID": 1211616226,
+        "podcastID": "1211616226",
         "provider": "itunes",
         "cast_episode": "cast",
         "author": "SBS",
@@ -709,7 +709,7 @@
         "image": "http://ifeelway.cdn3.cafe24.com/podera_wall.jpg"
     }, {
         "name": "김혜리의 필름클럽",
-        "podcastID": 1188513056,
+        "podcastID": "1188513056",
         "category": "기타",
         "provider": "itunes",
         "cast_episode": "cast",
@@ -752,7 +752,7 @@
     }, {
         "name": "진짜가 나타났다 시즌4",
         "category": "시사",
-        "podcastID": 15832,
+        "podcastID": "15832",
         "provider": "podbbang",
         "cast_episode": "cast",
         "url": "http://pod.ssenhosting.com/ch/15832",
@@ -760,7 +760,7 @@
     }, {
         "name": "김용민의 역사브리핑",
         "category": "역사",
-        "podcastID": 10653,
+        "podcastID": "10653",
         "provider": "podbbang",
         "cast_episode": "cast",
         "url": "http://pod.ssenhosting.com/ch/10653",
